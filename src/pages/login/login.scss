@@ -1,0 +1,26 @@
+page-login{
+  ion-header{
+    ion-navbar{
+      .back-button.show-back-button{
+        display: none;
+      }
+        ion-buttons{
+          button{
+            font-size: 25px !important;
+            margin-bottom: 5px !important;
+          }
+        }
+      }
+    }
+  ion-content{
+    div{
+      ion-list{
+        form{
+          button{
+            margin-top: 30px !important;
+          }
+        }
+      }
+    }
+  }
+}

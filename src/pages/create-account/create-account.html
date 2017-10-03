@@ -1,0 +1,51 @@
+<ion-header>
+ <ion-navbar>
+   <ion-buttons left>
+    <button ion-button (click)="goBack()">
+        <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>
+    </button>
+    </ion-buttons>
+     <ion-title>
+       Create Account
+     </ion-title>
+ </ion-navbar>
+</ion-header>
+<ion-content padding>
+ <ion-list>
+   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+     <ion-item>
+       <ion-label floating primary>Name</ion-label>
+       <ion-input [(ngModel)]="userInfo.name" formControlName="name" type="text"
+                  id="name" spellcheck="false" autocapitalize="off">
+       </ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('name')" danger padding-left>Invalid Name</p>
+     <ion-item>
+       <ion-label floating primary>Email</ion-label>
+       <ion-input [(ngModel)]="userInfo.email" formControlName="email"
+                  type="text" id="email" spellcheck="false" autocapitalize="off">
+       </ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('email')" danger padding-left>Invalid Email</p>
+     <ion-item>
+       <ion-label floating primary>Phone</ion-label>
+       <ion-input [(ngModel)]="userInfo.phone" formControlName="phone" type="text" id="phone">
+       </ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('phone')" danger padding-left>Invalid Phone</p>
+     <ion-item>
+       <ion-label floating primary>Password</ion-label>
+       <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone">
+       </ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('password')" danger padding-left>Invalid Password</p>
+     <ion-item>
+       <ion-label floating primary>Confirm Password</ion-label>
+       <ion-input [(ngModel)]="userInfo.confirmPassword" formControlName="confirmPassword" type="password" id="phone">
+       </ion-input>
+     </ion-item>
+     <p *ngIf="!isValid('confirmPassword')" danger padding-left>Invalid Confirm Password</p>
+     <button ion-button type="submit" block primary [disabled]="!myForm.valid || (userInfo.confirmPassword !== userInfo.password)">Submit</button>
+   </form>
+ </ion-list>
+</ion-content>

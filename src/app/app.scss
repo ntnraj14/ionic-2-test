@@ -1,0 +1,31 @@
+ion-icon{
+  padding-right: 10px;
+  padding-top: 5px;
+}
+ion-icon[name="lock"] {
+  font-size: 30px;
+ }
+ ion-icon[name="ios-arrow-forward"] {
+   padding-left: 60%;
+   &.logout {
+     padding-left: 55%;
+   }
+}
+ .toolbar-title{
+   font-size: 24px;
+ }
+ ion-menu{
+   ion-content{
+     ion-list{
+       button.menu-last-item{
+         .item-inner{
+            border-bottom: 1px solid #dedede !important;
+         }
+       }
+     }
+   }
+ }
+ .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+  border-bottom-color: transparent;
+  box-shadow:none;
+}

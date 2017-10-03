@@ -1,0 +1,32 @@
+ <ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+     <button ion-button (click)="goBack()">
+         <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>
+     </button>
+     </ion-buttons>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <form [formGroup]="myForm" (ngSubmit)="login()">
+      <ion-item>
+        <ion-label floating primary>Email</ion-label>
+        <ion-input [(ngModel)]="userInfo.email" formControlName="email"
+                   type="text" id="email" spellcheck="false" autocapitalize="off">
+        </ion-input>
+      </ion-item>
+      <p *ngIf="!isValid('email')" danger padding-left>Invalid Email</p>
+      <ion-item>
+        <ion-label floating primary>Password</ion-label>
+        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone">
+        </ion-input>
+      </ion-item>
+      <p *ngIf="!isValid('password')" danger padding-left>Invalid Password</p>
+      <button ion-button type="submit" block primary>Login</button>
+     </form>
+  </ion-list>
+</ion-content>
