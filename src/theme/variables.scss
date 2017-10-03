@@ -61,6 +61,9 @@ $colors: (
 // default are overridden.
 
 @import "ionic.theme.default";
+ion-content{
+  background-image: url('../assets/img/background-orange.png');
+}
 
 
 // Ionicons

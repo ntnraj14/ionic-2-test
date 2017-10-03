@@ -1,6 +1,6 @@
-<ion-header>
+<ion-header class="page-create-account">
  <ion-navbar>
-   <ion-buttons left>
+   <ion-buttons left *ngIf="loggedIn">
     <button ion-button (click)="goBack()">
         <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>
     </button>
@@ -10,7 +10,7 @@
      </ion-title>
  </ion-navbar>
 </ion-header>
-<ion-content padding>
+<ion-content padding scrollbar-y-auto class="page-create-account-inner">
  <ion-list>
    <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
      <ion-item>
@@ -19,32 +19,32 @@
                   id="name" spellcheck="false" autocapitalize="off">
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('name')" danger padding-left>Invalid Name</p>
+     <p *ngIf="!isValid('name')" danger padding-left class="create-invalid">Invalid Name</p>
      <ion-item>
        <ion-label floating primary>Email</ion-label>
        <ion-input [(ngModel)]="userInfo.email" formControlName="email"
                   type="text" id="email" spellcheck="false" autocapitalize="off">
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('email')" danger padding-left>Invalid Email</p>
+     <p *ngIf="!isValid('email')" danger padding-left class="create-invalid">Invalid Email</p>
      <ion-item>
        <ion-label floating primary>Phone</ion-label>
        <ion-input [(ngModel)]="userInfo.phone" formControlName="phone" type="text" id="phone">
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('phone')" danger padding-left>Invalid Phone</p>
+     <p *ngIf="!isValid('phone')" danger padding-left class="create-invalid">Invalid Phone</p>
      <ion-item>
        <ion-label floating primary>Password</ion-label>
        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone">
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('password')" danger padding-left>Invalid Password</p>
+     <p *ngIf="!isValid('password')" danger padding-left class="create-invalid">Invalid Password</p>
      <ion-item>
        <ion-label floating primary>Confirm Password</ion-label>
        <ion-input [(ngModel)]="userInfo.confirmPassword" formControlName="confirmPassword" type="password" id="phone">
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('confirmPassword')" danger padding-left>Invalid Confirm Password</p>
+     <p *ngIf="!isValid('confirmPassword')" danger padding-left class="create-invalid">Invalid Confirm Password</p>
      <button ion-button type="submit" block primary [disabled]="!myForm.valid || (userInfo.confirmPassword !== userInfo.password)">Submit</button>
    </form>
  </ion-list>

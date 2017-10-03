@@ -18,6 +18,7 @@ export class CreateAccountPage {
     userInfo: {name: string, email: string, phone: string, password: string, confirmPassword: string} =
     {name: '', email: '', phone: '',password:'',confirmPassword:''};
      message: string;
+  loggedIn:boolean=false;   
 
     constructor(public formBuilder: FormBuilder, public navCtrl: NavController ,
       public viewCtrl: ViewController, public storage: Storage, public sharedService: SharedService,
@@ -33,16 +34,11 @@ export class CreateAccountPage {
         'password': ['', [Validators.required, this.passwordValidator.bind(this)]],
         'confirmPassword': ['', [Validators.required, this.passwordValidator.bind(this)]]
       });
-      this.registerTypeBroadcast();
+      if(JSON.parse(localStorage.getItem('currentUser')) != null){
+        this.loggedIn=true;
+        this.navCtrl.push(TabsPage);
+      }
     }
-
-    registerTypeBroadcast() {
-      this.messageEvent.on()
-        .subscribe(message => {
-          this.message = message;
-        });
-    }
-
     onSubmit() {
       this.alert.presentToast('Yeahh! Your account created successfully');
       console.log('submitting form');
@@ -51,14 +47,7 @@ export class CreateAccountPage {
       this.sharedService.setUserName(this.userInfo.email);
       this.sharedService.setUserState(true);
       this.storage.set(this.userInfo.email, this.userInfo);
-      setTimeout(()=>{
-        this.navCtrl.setRoot(TabsPage);
-        this.emitTypeBroadcast();
-      },3000);
-    }
-
-    emitTypeBroadcast() {
-      this.messageEvent.fire(`userLoggedIn`);
+      this.navCtrl.setRoot(TabsPage);
     }
 
     isValid(field: string) {

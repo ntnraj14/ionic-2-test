@@ -1,3 +1,7 @@
+ion-content {
+  background-image: url("../assets/img/background-orange.png");
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -25209,11 +25213,7 @@ ion-icon[name="lock"] {
 }
 
 ion-icon[name="ios-arrow-forward"] {
-  padding-left: 60%;
-}
-
-ion-icon[name="ios-arrow-forward"].logout {
-  padding-left: 55%;
+  float: right;
 }
 
 .toolbar-title {
@@ -25230,6 +25230,59 @@ ion-menu ion-content ion-list button.menu-last-item .item-inner {
   box-shadow: none;
 }
 
+[scrollbar-y-auto] .scroll-content {
+  overflow-y: auto !important;
+}
+
+.toolbar-background-md {
+  background: #f57c7c;
+}
+
+.tabs-md .tabbar {
+  background: #f57c7c;
+}
+
+.menu-inner .item-md {
+  background: #f57c7c;
+}
+
+.menu-inner .item-md .item-inner {
+  border-bottom: 1px solid #dedede !important;
+}
+
+.item-md.item-input.item-input-has-focus .item-inner,
+.item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: white;
+  -webkit-box-shadow: inset 0 0px 0 0 white;
+  box-shadow: inset 0 0px 0 0 white;
+}
+
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: white;
+  -webkit-box-shadow: inset 0 0px 0 0 white;
+  box-shadow: inset 0 0px 0 0 white;
+}
+
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: white;
+  -webkit-box-shadow: inset 0 0px 0 0 white;
+  box-shadow: inset 0 0px 0 0 white;
+}
+
+.input-has-focus .label-md[floating] {
+  color: white;
+}
+
+.title.title-md {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
 page-create-account ion-header ion-navbar .back-button.show-back-button {
   display: none;
 }
@@ -25239,8 +25292,27 @@ page-create-account ion-header ion-navbar ion-buttons button {
   margin-bottom: 5px !important;
 }
 
+page-create-account ion-content div.scroll-content {
+  margin-top: 90px !important;
+}
+
 page-create-account ion-content div ion-list form button {
   margin-top: 30px !important;
+  background-color: rgba(245, 124, 124, 0.48) !important;
+}
+
+page-create-account ion-content div ion-list form ion-item {
+  background: rgba(245, 124, 124, 0.63) !important;
+}
+
+page-create-account ion-content div ion-list form ion-item .item-inner .input-wrapper ion-label {
+  color: white;
+}
+
+page-create-account ion-content div ion-list form .create-invalid {
+  background: rgba(245, 124, 124, 0.63) !important;
+  margin: 0px;
+  padding: 10px;
 }
 
 page-login ion-header ion-navbar .back-button.show-back-button {

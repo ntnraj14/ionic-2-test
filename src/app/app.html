@@ -6,7 +6,7 @@
     </ion-toolbar>
   </ion-header>
 
-  <ion-content class="myFav">
+  <ion-content scrollbar-y-auto>
     <ion-list>
          <button ion-item menuClose (click)="openCreateAccountPage(CreateAccountPage)" *ngIf="!userLoggedIn">
            <ion-icon name="create"></ion-icon>Sign Up

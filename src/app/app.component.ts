@@ -1,4 +1,4 @@
-import { Component,ViewChild,Output,OnInit,ChangeDetectorRef} from '@angular/core';
+import { Component,ViewChild,OnInit,ChangeDetectorRef} from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,7 +17,7 @@ import { Storage } from '@ionic/storage';
 })
 export class MyApp implements OnInit{
 
-  rootPage:any = TabsPage;
+  rootPage:any = CreateAccountPage;
   @ViewChild('nav') nav: NavController;
   accountName:any="Account";
   subscription:any;
@@ -80,7 +80,7 @@ userLogged(){
 }
 
 logOut(){
-  this.userLogged();
   localStorage.removeItem("currentUser");
-}
+  this.userLogged();
+  }
 }
