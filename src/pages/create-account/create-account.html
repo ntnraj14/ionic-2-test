@@ -16,10 +16,10 @@
      <ion-item>
        <ion-label floating primary>Name</ion-label>
        <ion-input [(ngModel)]="userInfo.name" formControlName="name" type="text"
-                  id="name" spellcheck="false" autocapitalize="off">
+                  id="name" spellcheck="false" autocapitalize="off"  validate-onblur>
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('name')" danger padding-left class="create-invalid">Invalid Name</p>
+     <p *ngIf="myForm.controls.name.touched && !myForm.controls.name.valid && !myForm.controls.name.pristine" danger padding-left class="create-invalid">Invalid Name</p>
      <ion-item>
        <ion-label floating primary>Email</ion-label>
        <ion-input [(ngModel)]="userInfo.email" formControlName="email"

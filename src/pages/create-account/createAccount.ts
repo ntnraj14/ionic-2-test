@@ -18,7 +18,7 @@ export class CreateAccountPage {
     userInfo: {name: string, email: string, phone: string, password: string, confirmPassword: string} =
     {name: '', email: '', phone: '',password:'',confirmPassword:''};
      message: string;
-  loggedIn:boolean=false;   
+  loggedIn:boolean=false;
 
     constructor(public formBuilder: FormBuilder, public navCtrl: NavController ,
       public viewCtrl: ViewController, public storage: Storage, public sharedService: SharedService,

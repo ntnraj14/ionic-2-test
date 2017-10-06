@@ -16,6 +16,7 @@ import { SharedService } from '../services/sharedService.service';
 import { BroadcasterService } from '../services/broadcaster.service';
 import { MessageService } from '../services/message.service';
 import { IonicStorageModule } from '@ionic/storage';
+import { ValidateOnBlurDirective } from '../directives/validate-on-blur/validate-on-blur';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { IonicStorageModule } from '@ionic/storage';
     HomePage,
     TabsPage,
     LoginPage,
-    CreateAccountPage
+    CreateAccountPage,
+    ValidateOnBlurDirective
   ],
   imports: [
     BrowserModule,
