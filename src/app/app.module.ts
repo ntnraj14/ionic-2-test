@@ -17,6 +17,7 @@ import { BroadcasterService } from '../services/broadcaster.service';
 import { MessageService } from '../services/message.service';
 import { IonicStorageModule } from '@ionic/storage';
 import { ValidateOnBlurDirective } from '../directives/validate-on-blur/validate-on-blur';
+import { BecomeMemberPage } from '../pages/become-member/become-member';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ValidateOnBlurDirective } from '../directives/validate-on-blur/validate
     TabsPage,
     LoginPage,
     CreateAccountPage,
-    ValidateOnBlurDirective
+    ValidateOnBlurDirective,
+    BecomeMemberPage    
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { ValidateOnBlurDirective } from '../directives/validate-on-blur/validate
     HomePage,
     TabsPage,
     LoginPage,
-    CreateAccountPage
+    CreateAccountPage,
+    BecomeMemberPage
   ],
   providers: [
     StatusBar,

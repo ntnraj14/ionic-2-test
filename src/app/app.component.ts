@@ -11,13 +11,14 @@ import { MessageService } from '../services/message.service';
 import { AlertService } from '../services/alert.service';
 import { SharedService } from '../services/sharedService.service';
 import { Storage } from '@ionic/storage';
+import { BecomeMemberPage } from '../pages/become-member/become-member';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp implements OnInit{
 
-  rootPage:any = CreateAccountPage;
+  rootPage:any = BecomeMemberPage;
   @ViewChild('nav') nav: NavController;
   accountName:any="Account";
   subscription:any;

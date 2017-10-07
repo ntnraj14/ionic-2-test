@@ -14,10 +14,29 @@ page-login{
     }
   ion-content{
     div{
+      &.scroll-content{
+        margin-top: 90px !important;
+      }
       ion-list{
         form{
           button{
             margin-top: 30px !important;
+            background-color:rgba(245, 124, 124, 0.48) !important;
+          }
+          ion-item{
+            background: rgba(245, 124, 124, 0.63) !important;
+            .item-inner{
+              .input-wrapper{
+                ion-label{
+                  color: white;
+                }
+              }
+            }
+          }
+          .create-invalid{
+            background: rgba(245, 124, 124, 0.63) !important;
+            margin: 0px;
+            padding: 10px;
           }
         }
       }

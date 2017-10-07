@@ -7,9 +7,7 @@ page-become-member {
       ion-tabs{
           .tabbar{
               .tab-button{
-                border-bottom: #040404;
-                border-width: 20px;
-                .tab-button-text{
+               .tab-button-text{
                     font-size: 16px;
                     letter-spacing: 0.7px;
                     font-weight: bold;
@@ -24,4 +22,7 @@ page-become-member {
           }
       }
   }
+  .tabs-md[tabsHighlight="true"] .tab-highlight {
+    background-color: #FFFFFF;
+}
 }

@@ -79,4 +79,11 @@ ion-icon[name="lock"] {
     text-align: center;
 
   }
+  .header-md::after,
+  .tabs-md[tabsPlacement="top"] > .tabbar::after {
+    background-image:none;
+  }
+  .enable-hover a:hover {
+    opacity: 1;
+  }
 

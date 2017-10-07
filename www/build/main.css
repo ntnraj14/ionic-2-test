@@ -25283,6 +25283,35 @@ ion-menu ion-content ion-list button.menu-last-item .item-inner {
   text-align: center;
 }
 
+.header-md::after,
+.tabs-md[tabsPlacement="top"] > .tabbar::after {
+  background-image: none;
+}
+
+.enable-hover a:hover {
+  opacity: 1;
+}
+
+page-become-member .tabs-md .tab-button[aria-selected=true] {
+  color: #FFFFFF;
+}
+
+page-become-member ion-content ion-tabs .tabbar .tab-button .tab-button-text {
+  font-size: 16px;
+  letter-spacing: 0.7px;
+  font-weight: bold;
+  -webkit-transform: scale3d(1, 1, 1) !important;
+  transform: scale3d(1, 1, 1) !important;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+
+page-become-member .tabs-md[tabsHighlight="true"] .tab-highlight {
+  background-color: #FFFFFF;
+}
+
 page-create-account ion-header ion-navbar .back-button.show-back-button {
   display: none;
 }
@@ -25324,6 +25353,25 @@ page-login ion-header ion-navbar ion-buttons button {
   margin-bottom: 5px !important;
 }
 
+page-login ion-content div.scroll-content {
+  margin-top: 90px !important;
+}
+
 page-login ion-content div ion-list form button {
   margin-top: 30px !important;
+  background-color: rgba(245, 124, 124, 0.48) !important;
+}
+
+page-login ion-content div ion-list form ion-item {
+  background: rgba(245, 124, 124, 0.63) !important;
+}
+
+page-login ion-content div ion-list form ion-item .item-inner .input-wrapper ion-label {
+  color: white;
+}
+
+page-login ion-content div ion-list form .create-invalid {
+  background: rgba(245, 124, 124, 0.63) !important;
+  margin: 0px;
+  padding: 10px;
 }
