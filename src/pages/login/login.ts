@@ -5,6 +5,8 @@ import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import { NavController,ViewController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { Storage } from '@ionic/storage';
+import { ValidationOnBlurDirective } from '../../directives/validate-on-blur/validate-on-blur';
+
 
 @Component({
   selector: 'page-login',

@@ -16,8 +16,8 @@ import { SharedService } from '../services/sharedService.service';
 import { BroadcasterService } from '../services/broadcaster.service';
 import { MessageService } from '../services/message.service';
 import { IonicStorageModule } from '@ionic/storage';
-import { ValidateOnBlurDirective } from '../directives/validate-on-blur/validate-on-blur';
 import { BecomeMemberPage } from '../pages/become-member/become-member';
+import { ValidationOnBlurDirective } from '../directives/validate-on-blur/validate-on-blur';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { BecomeMemberPage } from '../pages/become-member/become-member';
     TabsPage,
     LoginPage,
     CreateAccountPage,
-    ValidateOnBlurDirective,
+    ValidationOnBlurDirective,
     BecomeMemberPage    
   ],
   imports: [

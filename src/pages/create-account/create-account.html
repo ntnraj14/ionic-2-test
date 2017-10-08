@@ -23,29 +23,29 @@
      <ion-item>
        <ion-label floating primary>Email</ion-label>
        <ion-input [(ngModel)]="userInfo.email" formControlName="email"
-                  type="text" id="email" spellcheck="false" autocapitalize="off">
+                  type="text" id="email" spellcheck="false" autocapitalize="off" validate-onblur>
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('email')" danger padding-left class="create-invalid">Invalid Email</p>
+     <p *ngIf="myForm.controls.email.touched && !myForm.controls.email.valid && !myForm.controls.email.pristine" danger padding-left class="create-invalid">Invalid Email</p>
      <ion-item>
        <ion-label floating primary>Phone</ion-label>
-       <ion-input [(ngModel)]="userInfo.phone" formControlName="phone" type="text" id="phone">
+       <ion-input [(ngModel)]="userInfo.phone" formControlName="phone" type="text" id="phone" validate-onblur>
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('phone')" danger padding-left class="create-invalid">Invalid Phone</p>
+     <p *ngIf="myForm.controls.phone.touched && !myForm.controls.phone.valid && !myForm.controls.phone.pristine" danger padding-left class="create-invalid">Invalid Phone</p>
      <ion-item>
        <ion-label floating primary>Password</ion-label>
-       <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone">
+       <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone" validate-onblur>
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('password')" danger padding-left class="create-invalid">Invalid Password</p>
+     <p *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left class="create-invalid">Invalid Password</p>
      <ion-item>
        <ion-label floating primary>Confirm Password</ion-label>
-       <ion-input [(ngModel)]="userInfo.confirmPassword" formControlName="confirmPassword" type="password" id="phone">
+       <ion-input [(ngModel)]="userInfo.confirmPassword" formControlName="confirmPassword" type="password" id="phone" validate-onblur>
        </ion-input>
      </ion-item>
-     <p *ngIf="!isValid('confirmPassword')" danger padding-left class="create-invalid">Invalid Confirm Password</p>
-     <button ion-button type="submit" block primary [disabled]="!myForm.valid || (userInfo.confirmPassword !== userInfo.password)">Submit</button>
+     <p *ngIf="myForm.controls.confirmPassword.touched && !myForm.controls.confirmPassword.valid && !myForm.controls.confirmPassword.pristine" danger padding-left class="create-invalid">Invalid Confirm Password</p>
+     <button ion-button type="submit" block primary [disabled]="!myForm.valid || (userInfo.confirmPassword !== userInfo.password) || (myForm.controls.password !='') || (myForm.controls.confirmPassword !='') ">Submit</button>
    </form>
  </ion-list>
 </ion-content>

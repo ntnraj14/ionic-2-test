@@ -16,17 +16,17 @@
       <ion-item>
         <ion-label floating primary>Email</ion-label>
         <ion-input [(ngModel)]="userInfo.email" formControlName="email"
-                   type="text" id="email" spellcheck="false" autocapitalize="off">
+                   type="text" id="email" spellcheck="false" autocapitalize="off" validate-onblur>
         </ion-input>
       </ion-item>
-      <p *ngIf="!isValid('email')" danger padding-left>Invalid Email</p>
+      <p  *ngIf="myForm.controls.email.touched && !myForm.controls.email.valid && !myForm.controls.email.pristine" danger padding-left>Invalid Email</p>
       <ion-item>
         <ion-label floating primary>Password</ion-label>
-        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone">
+        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone" validate-onblur>
         </ion-input>
       </ion-item>
-      <p *ngIf="!isValid('password')" danger padding-left>Invalid Password</p>
-      <button ion-button type="submit" block primary>Login</button>
+      <p  *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left>Invalid Password</p>
+      <button ion-button type="submit" [disabled]="(!myForm.valid) && (userInfo.email) && (userInfo.email)" block primary>Login</button>
      </form>
   </ion-list>
 </ion-content>
