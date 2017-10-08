@@ -8,6 +8,7 @@ import { NavController,ViewController } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { Storage } from '@ionic/storage';
 import { ValidationOnBlurDirective } from '../../directives/validate-on-blur/validate-on-blur';
+import { BecomeMemberPage } from '../become-member/become-member';
 
 @Component({
   selector: 'page-create-account',
@@ -48,7 +49,8 @@ export class CreateAccountPage {
       this.sharedService.setUserName(this.userInfo.email);
       this.sharedService.setUserState(true);
       this.storage.set(this.userInfo.email, this.userInfo);
-      this.navCtrl.setRoot(TabsPage);
+      // this.navCtrl.pop(BecomeMemberPage);
+      this.navCtrl.push(TabsPage,{index: "1"});
     }
 
     isValid(field: string) {

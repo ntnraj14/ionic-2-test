@@ -26,7 +26,7 @@
         </ion-input>
       </ion-item>
       <p  *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left>Invalid Password</p>
-      <button ion-button type="submit" [disabled]="(!myForm.valid) && (userInfo.email) && (userInfo.email)" block primary>Login</button>
+      <button ion-button type="submit" [disabled]="(!myForm.valid) || (userInfo.password =='') || (userInfo.password =='')" block primary>Login</button>
      </form>
   </ion-list>
 </ion-content>

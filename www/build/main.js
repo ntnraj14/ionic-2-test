@@ -35,7 +35,7 @@ BecomeMemberPage = __decorate([
         name: 'become-tabs-page'
     }),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-become-member',template:/*ion-inline-start:"D:\ionic3Angular4\src\pages\become-member\become-member.html"*/'<ion-header>\n\n        <ion-toolbar>\n\n            <ion-title>Become Member</ion-title>\n\n        </ion-toolbar>\n\n      </ion-header>\n\n    \n\n <ion-content scrollbar-y-auto>\n\n        <ion-tabs  tabsHighlight="true" tabsPlacement="top">\n\n                    <ion-tab [root]="signInRoot" tabTitle="Sign in" ></ion-tab>\n\n                    <ion-tab [root]="signUpRoot" tabTitle="Sign up" ></ion-tab>\n\n                </ion-tabs>\n\n  </ion-content>\n\n\n\n\n\n\n\n\n\n\n\n'/*ion-inline-end:"D:\ionic3Angular4\src\pages\become-member\become-member.html"*/
+        selector: 'page-become-member',template:/*ion-inline-start:"D:\ionic3Angular4\src\pages\become-member\become-member.html"*/'<ion-header>\n\n        <ion-toolbar>\n\n            <ion-title>Become Member</ion-title>\n\n        </ion-toolbar>\n\n      </ion-header>\n\n    \n\n <ion-content scrollbar-y-auto>\n\n        <ion-tabs  tabsHighlight="true" tabsPlacement="top">\n\n                    <ion-tab [root]="signInRoot" tabsHideOnSubPages="true" tabTitle="Sign in" ></ion-tab>\n\n                    <ion-tab [root]="signUpRoot" tabsHideOnSubPages="true"  tabTitle="Sign up" ></ion-tab>\n\n                </ion-tabs>\n\n  </ion-content>\n\n\n\n\n\n\n\n\n\n\n\n'/*ion-inline-end:"D:\ionic3Angular4\src\pages\become-member\become-member.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]])
 ], BecomeMemberPage);
@@ -270,7 +270,9 @@ AppModule = __decorate([
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {}, {
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* MyApp */], {
+                tabsHideOnSubPages: true
+            }, {
                 links: [
                     { loadChildren: '../pages/become-member/become-member.module#BecomeMemberPageModule', name: 'become-tabs-page', segment: 'become-member', priority: 'low', defaultHistory: [] }
                 ]
@@ -313,14 +315,15 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_create_account_createAccount__ = __webpack_require__(81);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_broadcaster_service__ = __webpack_require__(47);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_message_service__ = __webpack_require__(82);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_alert_service__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_sharedService_service__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_become_member_become_member__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(83);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_login_login__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_create_account_createAccount__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_broadcaster_service__ = __webpack_require__(47);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__services_message_service__ = __webpack_require__(82);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__services_alert_service__ = __webpack_require__(45);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__services_sharedService_service__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_storage__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_become_member_become_member__ = __webpack_require__(107);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -330,6 +333,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -354,7 +358,7 @@ var MyApp = (function () {
         this.ref = ref;
         this.messageEvent = messageEvent;
         this.alertService = alertService;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_11__pages_become_member_become_member__["a" /* BecomeMemberPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__["a" /* TabsPage */];
         this.accountName = "Account";
         this.userInfo = { name: '', email: '' };
         this.userLoggedIn = false;
@@ -371,10 +375,10 @@ var MyApp = (function () {
         });
     };
     MyApp.prototype.openloginPage = function (page) {
-        this.nav.push(__WEBPACK_IMPORTED_MODULE_4__pages_login_login__["a" /* LoginPage */]);
+        this.nav.push(__WEBPACK_IMPORTED_MODULE_5__pages_login_login__["a" /* LoginPage */]);
     };
     MyApp.prototype.openCreateAccountPage = function (page) {
-        this.nav.push(__WEBPACK_IMPORTED_MODULE_5__pages_create_account_createAccount__["a" /* CreateAccountPage */]);
+        this.nav.push(__WEBPACK_IMPORTED_MODULE_6__pages_create_account_createAccount__["a" /* CreateAccountPage */]);
     };
     MyApp.prototype.ngOnInit = function () {
         this.registerTypeBroadcast();
@@ -402,6 +406,7 @@ var MyApp = (function () {
             this.userLoggedIn = false;
         }
         this.ref.detectChanges();
+        this.nav.push(__WEBPACK_IMPORTED_MODULE_12__pages_become_member_become_member__["a" /* BecomeMemberPage */], { index: "1" });
     };
     MyApp.prototype.logOut = function () {
         localStorage.removeItem("currentUser");
@@ -411,16 +416,15 @@ var MyApp = (function () {
 }());
 __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* ViewChild */])('nav'),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */])
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object)
 ], MyApp.prototype, "nav", void 0);
 MyApp = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"D:\ionic3Angular4\src\app\app.html"*/'<ion-menu [content]="nav" class="myFav1">\n\n\n\n  <ion-header>\n\n    <ion-toolbar>\n\n        <ion-title><ion-icon name="lock"></ion-icon>{{accountName}}</ion-title>\n\n    </ion-toolbar>\n\n  </ion-header>\n\n\n\n  <ion-content scrollbar-y-auto>\n\n    <ion-list>\n\n         <button ion-item menuClose (click)="openCreateAccountPage(CreateAccountPage)" *ngIf="!userLoggedIn">\n\n           <ion-icon name="create"></ion-icon>Sign Up\n\n           <ion-icon name="ios-arrow-forward"></ion-icon>\n\n        </button>\n\n        <button ion-item menuClose (click)="openloginPage(LoginPage)" *ngIf="!userLoggedIn">\n\n         <ion-icon name="log-in"></ion-icon> Login\n\n        <ion-icon name="ios-arrow-forward"></ion-icon>\n\n       </button>\n\n       <button class="menu-last-item " ion-item menuClose (click)="logOut()" *ngIf="userLoggedIn">\n\n        <ion-icon name="log-out"></ion-icon> Logout\n\n       <ion-icon name="ios-arrow-forward" class="logout"></ion-icon>\n\n      </button>\n\n    </ion-list>\n\n    <ion-list>\n\n\n\n    </ion-list>\n\n  </ion-content>\n\n\n\n</ion-menu>\n\n<ion-nav id="nav" [root]="rootPage" #nav swipeBackEnabled="false"></ion-nav>\n\n'/*ion-inline-end:"D:\ionic3Angular4\src\app\app.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_10__ionic_storage__["b" /* Storage */],
-        __WEBPACK_IMPORTED_MODULE_6__services_broadcaster_service__["a" /* BroadcasterService */], __WEBPACK_IMPORTED_MODULE_9__services_sharedService_service__["a" /* SharedService */],
-        __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */], __WEBPACK_IMPORTED_MODULE_7__services_message_service__["a" /* MessageService */], __WEBPACK_IMPORTED_MODULE_8__services_alert_service__["a" /* AlertService */]])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_11__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__ionic_storage__["b" /* Storage */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_7__services_broadcaster_service__["a" /* BroadcasterService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__services_broadcaster_service__["a" /* BroadcasterService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_10__services_sharedService_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__services_sharedService_service__["a" /* SharedService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["k" /* ChangeDetectorRef */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_8__services_message_service__["a" /* MessageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__services_message_service__["a" /* MessageService */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_9__services_alert_service__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__services_alert_service__["a" /* AlertService */]) === "function" && _k || Object])
 ], MyApp);
 
+var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
 //# sourceMappingURL=app.component.js.map
 
 /***/ }),
@@ -482,10 +486,9 @@ ValidationOnBlurDirective = __decorate([
             '(ngModelChange)': 'onNgModelChange($event)'
         }
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgControl */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgControl */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["d" /* NgControl */]])
 ], ValidationOnBlurDirective);
 
-var _a;
 //# sourceMappingURL=validate-on-blur.js.map
 
 /***/ }),
@@ -693,7 +696,8 @@ var CreateAccountPage = (function () {
         this.sharedService.setUserName(this.userInfo.email);
         this.sharedService.setUserState(true);
         this.storage.set(this.userInfo.email, this.userInfo);
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__tabs_tabs__["a" /* TabsPage */]);
+        // this.navCtrl.pop(BecomeMemberPage);
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_7__tabs_tabs__["a" /* TabsPage */], { index: "1" });
     };
     CreateAccountPage.prototype.isValid = function (field) {
         var formField = this.myForm.get(field);
@@ -734,7 +738,7 @@ var CreateAccountPage = (function () {
 }());
 CreateAccountPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-create-account',template:/*ion-inline-start:"D:\ionic3Angular4\src\pages\create-account\create-account.html"*/'<ion-header class="page-create-account">\n\n <!-- <ion-navbar>\n\n   <ion-buttons left *ngIf="loggedIn">\n\n    <button ion-button (click)="goBack()">\n\n        <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>\n\n    </button>\n\n    </ion-buttons>\n\n     <ion-title>\n\n       Create Account\n\n     </ion-title>\n\n </ion-navbar> -->\n\n</ion-header>\n\n<ion-content padding scrollbar-y-auto class="page-create-account-inner">\n\n <ion-list>\n\n   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">\n\n     <ion-item>\n\n       <ion-label floating primary>Name</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.name" formControlName="name" type="text"\n\n                  id="name" spellcheck="false" autocapitalize="off"  validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.name.touched && !myForm.controls.name.valid && !myForm.controls.name.pristine" danger padding-left class="create-invalid">Invalid Name</p>\n\n     <ion-item>\n\n       <ion-label floating primary>Email</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.email" formControlName="email"\n\n                  type="text" id="email" spellcheck="false" autocapitalize="off" validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.email.touched && !myForm.controls.email.valid && !myForm.controls.email.pristine" danger padding-left class="create-invalid">Invalid Email</p>\n\n     <ion-item>\n\n       <ion-label floating primary>Phone</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.phone" formControlName="phone" type="text" id="phone" validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.phone.touched && !myForm.controls.phone.valid && !myForm.controls.phone.pristine" danger padding-left class="create-invalid">Invalid Phone</p>\n\n     <ion-item>\n\n       <ion-label floating primary>Password</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone" validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left class="create-invalid">Invalid Password</p>\n\n     <ion-item>\n\n       <ion-label floating primary>Confirm Password</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.confirmPassword" formControlName="confirmPassword" type="password" id="phone" validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.confirmPassword.touched && !myForm.controls.confirmPassword.valid && !myForm.controls.confirmPassword.pristine" danger padding-left class="create-invalid">Invalid Confirm Password</p>\n\n     <button ion-button type="submit" block primary [disabled]="!myForm.valid || (userInfo.confirmPassword !== userInfo.password) || (myForm.controls.password !=\'\') || (myForm.controls.confirmPassword !=\'\') ">Submit</button>\n\n   </form>\n\n </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\ionic3Angular4\src\pages\create-account\create-account.html"*/,
+        selector: 'page-create-account',template:/*ion-inline-start:"D:\ionic3Angular4\src\pages\create-account\create-account.html"*/'<ion-header class="page-create-account">\n\n <!-- <ion-navbar>\n\n   <ion-buttons left *ngIf="loggedIn">\n\n    <button ion-button (click)="goBack()">\n\n        <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>\n\n    </button>\n\n    </ion-buttons>\n\n     <ion-title>\n\n       Create Account\n\n     </ion-title>\n\n </ion-navbar> -->\n\n</ion-header>\n\n<ion-content padding scrollbar-y-auto class="page-create-account-inner">\n\n <ion-list>\n\n   <form [formGroup]="myForm" (ngSubmit)="onSubmit()">\n\n     <ion-item>\n\n       <ion-label floating primary>Name</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.name" formControlName="name" type="text"\n\n                  id="name" spellcheck="false" autocapitalize="off"  validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.name.touched && !myForm.controls.name.valid && !myForm.controls.name.pristine" danger padding-left class="create-invalid">Invalid Name</p>\n\n     <ion-item>\n\n       <ion-label floating primary>Email</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.email" formControlName="email"\n\n                  type="text" id="email" spellcheck="false" autocapitalize="off" validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.email.touched && !myForm.controls.email.valid && !myForm.controls.email.pristine" danger padding-left class="create-invalid">Invalid Email</p>\n\n     <ion-item>\n\n       <ion-label floating primary>Phone</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.phone" formControlName="phone" type="text" id="phone" validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.phone.touched && !myForm.controls.phone.valid && !myForm.controls.phone.pristine" danger padding-left class="create-invalid">Invalid Phone</p>\n\n     <ion-item>\n\n       <ion-label floating primary>Password</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone" validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left class="create-invalid">Invalid Password</p>\n\n     <ion-item>\n\n       <ion-label floating primary>Confirm Password</ion-label>\n\n       <ion-input [(ngModel)]="userInfo.confirmPassword" formControlName="confirmPassword" type="password" id="phone" validate-onblur>\n\n       </ion-input>\n\n     </ion-item>\n\n     <p *ngIf="myForm.controls.confirmPassword.touched && !myForm.controls.confirmPassword.valid && !myForm.controls.confirmPassword.pristine" danger padding-left class="create-invalid">Invalid Confirm Password</p>\n\n     <button ion-button type="submit" block primary [disabled]="(!myForm.valid) || (userInfo.confirmPassword !== userInfo.password) || (userInfo.password ==\'\') || (userInfo.confirmPassword ==\'\') ">Submit</button>\n\n   </form>\n\n </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\ionic3Angular4\src\pages\create-account\create-account.html"*/,
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["j" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["j" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__services_sharedService_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_sharedService_service__["a" /* SharedService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__services_broadcaster_service__["a" /* BroadcasterService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_broadcaster_service__["a" /* BroadcasterService */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__services_message_service__["a" /* MessageService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_message_service__["a" /* MessageService */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1__services_alert_service__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_alert_service__["a" /* AlertService */]) === "function" && _h || Object])
 ], CreateAccountPage);
@@ -814,7 +818,7 @@ var TabsPage = (function () {
     return TabsPage;
 }());
 TabsPage = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"D:\ionic3Angular4\src\pages\tabs\tabs.html"*/'<ion-tabs>\n  <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n  <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n  <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"D:\ionic3Angular4\src\pages\tabs\tabs.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"D:\ionic3Angular4\src\pages\tabs\tabs.html"*/'<ion-content scrollbar-y-auto>\n  <ion-tabs  tabsHighlight="true">\n    <ion-tab [root]="tab1Root" tabTitle="Home" tabIcon="home"></ion-tab>\n    <ion-tab [root]="tab2Root" tabTitle="About" tabIcon="information-circle"></ion-tab>\n    <ion-tab [root]="tab3Root" tabTitle="Contact" tabIcon="contacts"></ion-tab>\n          </ion-tabs>\n</ion-content>\n'/*ion-inline-end:"D:\ionic3Angular4\src\pages\tabs\tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -913,12 +917,13 @@ var LoginPage = (function () {
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"D:\ionic3Angular4\src\pages\login\login.html"*/' <ion-header>\n\n  <!-- <ion-navbar>\n\n    <ion-buttons left>\n\n     <button ion-button [hidden]="true" (click)="goBack()">\n\n         <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>\n\n     </button>\n\n     </ion-buttons>\n\n    <ion-title>\n\n      Login\n\n    </ion-title>\n\n  </ion-navbar> -->\n\n</ion-header>\n\n<ion-content padding scrollbar-y-auto>\n\n  <ion-list>\n\n    <form [formGroup]="myForm" (ngSubmit)="login()">\n\n      <ion-item>\n\n        <ion-label floating primary>Email</ion-label>\n\n        <ion-input [(ngModel)]="userInfo.email" formControlName="email"\n\n                   type="text" id="email" spellcheck="false" autocapitalize="off" validate-onblur>\n\n        </ion-input>\n\n      </ion-item>\n\n      <p  *ngIf="myForm.controls.email.touched && !myForm.controls.email.valid && !myForm.controls.email.pristine" danger padding-left>Invalid Email</p>\n\n      <ion-item>\n\n        <ion-label floating primary>Password</ion-label>\n\n        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone" validate-onblur>\n\n        </ion-input>\n\n      </ion-item>\n\n      <p  *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left>Invalid Password</p>\n\n      <button ion-button type="submit" [disabled]="(!myForm.valid) && (userInfo.email) && (userInfo.email)" block primary>Login</button>\n\n     </form>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\ionic3Angular4\src\pages\login\login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"D:\ionic3Angular4\src\pages\login\login.html"*/' <ion-header>\n\n  <!-- <ion-navbar>\n\n    <ion-buttons left>\n\n     <button ion-button [hidden]="true" (click)="goBack()">\n\n         <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>\n\n     </button>\n\n     </ion-buttons>\n\n    <ion-title>\n\n      Login\n\n    </ion-title>\n\n  </ion-navbar> -->\n\n</ion-header>\n\n<ion-content padding scrollbar-y-auto>\n\n  <ion-list>\n\n    <form [formGroup]="myForm" (ngSubmit)="login()">\n\n      <ion-item>\n\n        <ion-label floating primary>Email</ion-label>\n\n        <ion-input [(ngModel)]="userInfo.email" formControlName="email"\n\n                   type="text" id="email" spellcheck="false" autocapitalize="off" validate-onblur>\n\n        </ion-input>\n\n      </ion-item>\n\n      <p  *ngIf="myForm.controls.email.touched && !myForm.controls.email.valid && !myForm.controls.email.pristine" danger padding-left>Invalid Email</p>\n\n      <ion-item>\n\n        <ion-label floating primary>Password</ion-label>\n\n        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone" validate-onblur>\n\n        </ion-input>\n\n      </ion-item>\n\n      <p  *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left>Invalid Password</p>\n\n      <button ion-button type="submit" [disabled]="(!myForm.valid) || (userInfo.password ==\'\') || (userInfo.password ==\'\')" block primary>Login</button>\n\n     </form>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\ionic3Angular4\src\pages\login\login.html"*/,
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__services_alert_service__["a" /* AlertService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_alert_service__["a" /* AlertService */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__services_sharedService_service__["a" /* SharedService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_sharedService_service__["a" /* SharedService */]) === "function" && _f || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["a" /* FormBuilder */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["g" /* NavController */],
+        __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["j" /* ViewController */], __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1__services_alert_service__["a" /* AlertService */],
+        __WEBPACK_IMPORTED_MODULE_2__services_sharedService_service__["a" /* SharedService */]])
 ], LoginPage);
 
-var _a, _b, _c, _d, _e, _f;
 //# sourceMappingURL=login.js.map
 
 /***/ })

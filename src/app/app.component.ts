@@ -18,7 +18,7 @@ import { BecomeMemberPage } from '../pages/become-member/become-member';
 })
 export class MyApp implements OnInit{
 
-  rootPage:any = BecomeMemberPage;
+  rootPage:any = TabsPage;
   @ViewChild('nav') nav: NavController;
   accountName:any="Account";
   subscription:any;
@@ -76,8 +76,10 @@ userLogged(){
   }else{
     this.accountName="Account";
     this.userLoggedIn=false;
+    
   }
   this.ref.detectChanges();
+  this.nav.push(BecomeMemberPage,{index: "1"});
 }
 
 logOut(){

@@ -33,7 +33,9 @@ import { ValidationOnBlurDirective } from '../directives/validate-on-blur/valida
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+      tabsHideOnSubPages:true
+   }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],

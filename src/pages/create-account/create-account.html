@@ -45,7 +45,7 @@
        </ion-input>
      </ion-item>
      <p *ngIf="myForm.controls.confirmPassword.touched && !myForm.controls.confirmPassword.valid && !myForm.controls.confirmPassword.pristine" danger padding-left class="create-invalid">Invalid Confirm Password</p>
-     <button ion-button type="submit" block primary [disabled]="!myForm.valid || (userInfo.confirmPassword !== userInfo.password) || (myForm.controls.password !='') || (myForm.controls.confirmPassword !='') ">Submit</button>
+     <button ion-button type="submit" block primary [disabled]="(!myForm.valid) || (userInfo.confirmPassword !== userInfo.password) || (userInfo.password =='') || (userInfo.confirmPassword =='') ">Submit</button>
    </form>
  </ion-list>
 </ion-content>
