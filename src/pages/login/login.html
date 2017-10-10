@@ -26,6 +26,14 @@
         </ion-input>
       </ion-item>
       <p  *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left>Invalid Password</p>
+      <ion-item class="list">
+        <label class="item item-radio">
+          <input type="radio" name="group">
+          <span class="item-content"> Remember Me </span>
+           <i class="radio-icon ion-checkmark"></i>
+        </label>
+        <!-- <input type="radio" name="Remember Me" value="remeberMe" checked> -->
+      </ion-item>
       <button ion-button type="submit" [disabled]="(!myForm.valid) || (userInfo.password =='') || (userInfo.password =='')" block primary>Login</button>
      </form>
   </ion-list>

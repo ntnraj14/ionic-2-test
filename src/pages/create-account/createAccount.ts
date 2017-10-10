@@ -4,7 +4,7 @@ import { SharedService } from '../../services/sharedService.service';
 import { BroadcasterService } from '../../services/broadcaster.service';
 import { MessageService } from '../../services/message.service';
 import {FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
-import { NavController,ViewController } from 'ionic-angular';
+import { NavController,ViewController,App } from 'ionic-angular';
 import { TabsPage } from '../tabs/tabs';
 import { Storage } from '@ionic/storage';
 import { ValidationOnBlurDirective } from '../../directives/validate-on-blur/validate-on-blur';
@@ -24,7 +24,8 @@ export class CreateAccountPage {
 
     constructor(public formBuilder: FormBuilder, public navCtrl: NavController ,
       public viewCtrl: ViewController, public storage: Storage, public sharedService: SharedService,
-      private broadcaster: BroadcasterService,private messageEvent: MessageService, private alert: AlertService) {
+      private broadcaster: BroadcasterService,private messageEvent: MessageService,
+       private alert: AlertService, public app: App) {
         this.sharedService=sharedService;
     }
 
@@ -49,8 +50,7 @@ export class CreateAccountPage {
       this.sharedService.setUserName(this.userInfo.email);
       this.sharedService.setUserState(true);
       this.storage.set(this.userInfo.email, this.userInfo);
-      // this.navCtrl.pop(BecomeMemberPage);
-      this.navCtrl.push(TabsPage,{index: "1"});
+      this.app.getRootNav().push(TabsPage);
     }
 
     isValid(field: string) {
