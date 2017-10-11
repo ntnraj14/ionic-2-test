@@ -60,7 +60,7 @@ export class CreateAccountPage {
 
     nameValidator(control: FormControl): {[s: string]: boolean} {
     if (control.value !== '') {
-      if (!control.value.match("^[A-Za-z0-9 ]+[A-Za-z0-9\s]$")) {
+      if (!control.value.match('^(([A-Za-z]+[\-\']?)*([A-Za-z]+)?\s)+([A-Za-z]+[\-\']?)*([A-Za-z]+)?$')) {
         return {'invalidName': true};
       }
     }

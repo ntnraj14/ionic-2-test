@@ -25292,6 +25292,20 @@ ion-menu ion-content ion-list button.menu-last-item .item-inner {
   opacity: 1;
 }
 
+.checkbox-md .checkbox-icon {
+  background-color: #f57c7c;
+  border-color: #fff;
+}
+
+.checkbox-md .checkbox-checked {
+  border-color: #f57c7c;
+  background-color: #f57c7c;
+}
+
+.item-checkbox .checkbox button .button-effect {
+  display: none;
+}
+
 page-become-member .tabs-md .tab-button[aria-selected=true] {
   color: #FFFFFF;
 }

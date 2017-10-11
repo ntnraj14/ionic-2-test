@@ -29,7 +29,7 @@ ion-icon[name="lock"] {
 [scrollbar-y-auto] .scroll-content {
   overflow-y: auto !important;
 }
-    
+
  .toolbar-background-md {
     background: #f57c7c;
   }
@@ -44,7 +44,7 @@ ion-icon[name="lock"] {
       .item-inner{
         border-bottom: 1px solid #dedede !important;
       }
-    } 
+    }
   }
 
   .item-md.item-input.item-input-has-focus .item-inner,
@@ -87,3 +87,20 @@ ion-icon[name="lock"] {
     opacity: 1;
   }
 
+  .checkbox-md .checkbox-icon {
+    background-color: #f57c7c;
+    border-color: #fff;
+  }
+  .checkbox-md .checkbox-checked {
+    border-color: #f57c7c;
+    background-color: #f57c7c;
+  }
+  .item-checkbox{
+    .checkbox{
+      button{
+        .button-effect{
+          display: none;
+        }
+      }
+    }
+  }
