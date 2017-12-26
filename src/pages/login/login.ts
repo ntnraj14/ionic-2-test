@@ -15,7 +15,7 @@ import { ValidationOnBlurDirective } from '../../directives/validate-on-blur/val
 export class LoginPage {
 
   myForm: FormGroup;
-    userInfo: {email: string,password: string} = {email: '',password:''};
+    userInfo: {email: string,password: string,rememberMe: boolean} = {email: '',password:'',rememberMe:true};
 
     constructor(public formBuilder: FormBuilder, public navCtrl: NavController ,
       public viewCtrl: ViewController, public storage: Storage,public alertService: AlertService,
@@ -26,7 +26,8 @@ export class LoginPage {
     ngOnInit(): any {
       this.myForm = this.formBuilder.group({
         'email': ['', [Validators.required, this.emailValidator.bind(this)]],
-        'password': ['', [Validators.required, this.passwordValidator.bind(this)]]
+        'password': ['', [Validators.required, this.passwordValidator.bind(this)]],
+        'rememberMe': ['', []]
       });
     }
 
@@ -71,5 +72,9 @@ export class LoginPage {
         this.alertService.alertPrompt("Oops!","This email is not registered with us.");
       }
     });
+  }
+
+  rememberMe() {
+    console.log('Cucumbers new state:');
   }
 }

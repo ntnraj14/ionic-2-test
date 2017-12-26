@@ -26,16 +26,14 @@
         </ion-input>
       </ion-item>
       <p  *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left>Invalid Password</p>
-      <ion-item class="list">
-        <label class="item item-radio">
-          <input type="radio" name="group">
-          <span class="item-content"> Remember Me </span>
-           <i class="radio-icon ion-checkmark"></i>
-        </label>
-        <!-- <input type="radio" name="Remember Me" value="remeberMe" checked> -->
+      <ion-item>
+        <ion-label>Remember Me</ion-label>
+        <ion-checkbox [(ngModel)]="userInfo.rememberMe" formControlName="rememberMe" (ionChange)="rememberMe()" checked="true" ></ion-checkbox>
       </ion-item>
+
       <button ion-button type="submit" [disabled]="(!myForm.valid) || (userInfo.password =='') || (userInfo.password =='')" block primary>Login</button>
      </form>
      <button (ngClick)="gmailLogin()">Gmail Sign </button>
   </ion-list>
+  <div class="g-signin2" data-onsuccess="onSignIn">Sign In</div>
 </ion-content>
