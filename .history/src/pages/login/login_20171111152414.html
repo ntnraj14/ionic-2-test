@@ -1,0 +1,40 @@
+ <ion-header>
+  <!-- <ion-navbar>
+    <ion-buttons left>
+     <button ion-button [hidden]="true" (click)="goBack()">
+         <ion-icon class="customIcon" name="ios-arrow-back"></ion-icon>
+     </button>
+     </ion-buttons>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar> -->
+</ion-header>
+<ion-content padding scrollbar-y-auto>
+  <ion-list>
+    <form [formGroup]="myForm" (ngSubmit)="login()">
+      <ion-item>
+        <ion-label floating primary>Email</ion-label>
+        <ion-input [(ngModel)]="userInfo.email" formControlName="email"
+                   type="text" id="email" spellcheck="false" autocapitalize="off" validate-onblur>
+        </ion-input>
+      </ion-item>
+      <p  *ngIf="myForm.controls.email.touched && !myForm.controls.email.valid && !myForm.controls.email.pristine" danger padding-left>Invalid Email</p>
+      <ion-item>
+        <ion-label floating primary>Password</ion-label>
+        <ion-input [(ngModel)]="userInfo.password" formControlName="password" type="password" id="phone" validate-onblur>
+        </ion-input>
+      </ion-item>
+      <p  *ngIf="myForm.controls.password.touched && !myForm.controls.password.valid && !myForm.controls.password.pristine" danger padding-left>Invalid Password</p>
+      <ion-item class="list">
+        <label class="item item-radio">
+          <input type="radio" name="group">
+          <span class="item-content"> Remember Me </span>
+           <i class="radio-icon ion-checkmark"></i>
+        </label>
+        <!-- <input type="radio" name="Remember Me" value="remeberMe" checked> -->
+      </ion-item>
+      <button ion-button type="submit" [disabled]="(!myForm.valid) || (userInfo.password =='') || (userInfo.password =='')" block primary>Login</button>
+     </form>
+  </ion-list>
+</ion-content>

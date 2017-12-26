@@ -36,5 +36,6 @@
       </ion-item>
       <button ion-button type="submit" [disabled]="(!myForm.valid) || (userInfo.password =='') || (userInfo.password =='')" block primary>Login</button>
      </form>
+     <button (ngClick)="gmailLogin()">Gmail Sign </button>
   </ion-list>
 </ion-content>
